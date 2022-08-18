@@ -20,6 +20,7 @@ function App() {
       <Routes>
         <Route path="/" element={<PodcastList />} />
         <Route path="/podcast/:id" element={<PodcastDetail />} />
+        <Route path="/podcast/:id/episode/:id" element={<PodcastDetail />} />
         <Route path="*" element={<PodcastList />} />
       </Routes>
     </div>
