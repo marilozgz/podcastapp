@@ -1,23 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
+import PodcastList from "./components/PodcastList";
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/*esto es el header*/}
+      <div className="container mx-auto px-4 mt-10 pb-5 flex flex-row shadow-md ">
+        <div className=" flex-initial">
+          <p className="text-2xl font-semibold text-sky-600"> Podcaster</p>
+        </div>
+      </div>
+      {/* fin del header*/}
+
+      {/*esto es el contendedor principal*/}
+     <PodcastList/>
+   
     </div>
   );
 }
