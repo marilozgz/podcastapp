@@ -1,6 +1,16 @@
-import "./App.css";
-import PodcastList from "./components/PodcastList";
+import PodcastList from "./PodcastList";
+import { useSelector, useDispatch } from "react-redux";
+import { showPodcast, getPodcastAsync } from "../features/podcastSlice";
+import React , {  useEffect } from "react";
+
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getPodcastAsync());
+     
+ } , [dispatch]);
+
   return (
     <div className="App">
       {/*esto es el header*/}
