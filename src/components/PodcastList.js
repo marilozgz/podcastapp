@@ -5,6 +5,8 @@ import { showPodcast, getPodcastAsync } from "../features/podcastSlice";
 
 const PodcastList = ({}) => {
   const listpodcast = useSelector(showPodcast);
+
+
   const arrayChunk = (listpodcast, n) => {
     const array = listpodcast.slice();
     const chunks = [];
@@ -36,7 +38,7 @@ const PodcastList = ({}) => {
         {arrayChunk([...Array(9).keys()], 3).map((row, i) => (
           <div className="grid grid-cols-4 gap-4" key={i}>
         {listpodcast.map((podcast,index) => (
-          <PodcastCard title= {podcast.title.label} author={podcast['im:artist'].label} image ={podcast['im:image'][2].label}/>
+          <PodcastCard title= {podcast.title.label} author={podcast['im:artist'].label} image ={podcast['im:image'][2].label} id={podcast.id.attributes["im:id"]} key={podcast.id.attributes["im:id"]}/>
         
         ))}
         </div>

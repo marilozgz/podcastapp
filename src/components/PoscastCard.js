@@ -1,10 +1,10 @@
 import React from "react";
-
-const PodcastCard = ({  title, author , image}) => {
+import { Link } from "react-router-dom";
+const PodcastCard = ({  id,title, author , image}) => {
   return (
-  
-    <div
-      id="posdcast-list"
+  <Link to={`/podcast/${id}`}   key={id}>
+    <div key={id}
+      id="posdcast-card"
       className="container mt-10 mb-10 mx-auto px-4 mt-5 pb-5 flex flex-row justify-between"
     >
       <div className="flex flex-col	mt-10 justify-center bg-white drop-shadow-md rounded-lg p-1.5  pb-30">
@@ -22,6 +22,7 @@ const PodcastCard = ({  title, author , image}) => {
         </div>
       </div>
     </div>
+    </Link>
   
   );
 };
