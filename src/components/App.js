@@ -6,6 +6,7 @@ import PodcastDetail from "./PodcastDetail";
 import PodcastList from "./PodcastList";
 import {  getPodcastAsync } from "../features/podcastSlice";
 import Header from "./Header";
+import EpisodeDetail from "./EpisodeDetail";
 function App() {
   const dispatch = useDispatch();
 
@@ -20,7 +21,7 @@ function App() {
       <Routes>
         <Route path="/" element={<PodcastList />} />
         <Route path="/podcast/:id" element={<PodcastDetail />} />
-        <Route path="/podcast/:id/episode/:id" element={<PodcastDetail />} />
+        <Route path="/podcast/:idPodcast/episode/:idEpisode" element={<EpisodeDetail />} />
         <Route path="*" element={<PodcastList />} />
       </Routes>
     </div>
