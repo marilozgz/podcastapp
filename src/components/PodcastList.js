@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import PodcastCard from "./PoscastCard";
-import { useSelector, useDispatch } from "react-redux";
-import { showPodcast, getPodcastAsync } from "../features/podcastSlice";
+import { useSelector} from "react-redux";
+import { showPodcast } from "../features/podcastSlice";
 
 const PodcastList = ({}) => {
   const listpodcast = useSelector(showPodcast);
