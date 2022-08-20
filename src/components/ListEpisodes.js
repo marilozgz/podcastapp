@@ -22,13 +22,13 @@ const TableEpisodes = ({  title, author , image, description}) => {
         getEpisodes();
     } , [api]);
 
-          
+    
     return(
         
         <div className="flex  flex-col basis-1/2">
         
         <div className="shadow-lg bg-white pt-7 pb-5 pl-4 content-center text-lg font-bold	">
-          Episodes {66}
+          Episodes {numEpisodes}
         </div>
         <div className="mt-10 text-left	">
           <table className="table-fixed min-w-full">

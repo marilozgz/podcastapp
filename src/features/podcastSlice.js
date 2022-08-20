@@ -4,7 +4,6 @@ import { createSelector } from "@reduxjs/toolkit";
 const API_URL =
   "https://itunes.apple.com/us/rss/toppodcasts/limit=100/genre=1310/json";
 
-const podcastslista= []
 export const podcastSlice = createSlice({
   name: "podcast",
   initialState: {

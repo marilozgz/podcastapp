@@ -2,11 +2,11 @@ import React , {  useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import { useDispatch } from "react-redux";
 /* Imports components */
-import PodcastDetail from "./PodcastDetail";
-import PodcastList from "./PodcastList";
+import PodcastDetail from "./Podcast/PodcastDetail";
+import PodcastList from "./Podcast/PodcastList";
 import {  getPodcastAsync } from "../features/podcastSlice";
 import Header from "./Header";
-import EpisodeDetail from "./EpisodeDetail";
+import EpisodeDetail from "./Episodes/EpisodeDetail";
 function App() {
   const dispatch = useDispatch();
 
