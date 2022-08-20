@@ -1,38 +1,42 @@
 import React from "react";
 
-import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { getPodcastById } from "../features/podcastSlice";
 
-const SideDetail = () => {
+const SideDetail = ({  description,title, author , image}) => {
   const { id } = useParams();
-  const detail = useSelector(getPodcastById(id));
+  if(author){
+  
   return (
     <div className="basis-1/3">
-      {detail.map((podcast, index) => (
-        <div className=" shadow-lg bg-white max-w-sm" key={index}>
+     
+        <div className=" shadow-lg bg-white max-w-sm" key={title}>
           <img
             className="p-8 bg-white mx-auto rounded max-w-sm"
-            src={podcast["im:image"][2].label}
+            src={image}
             alt=""
           />
 
           <div className="p-6">
             <h5 className="text-gray-900 text-xl font-bold mb-2">
-              {podcast.title.label}
+              {title}
             </h5>
             <p className="text-gray-700 text-base mb-4 italic">
-              by {podcast["im:artist"].label}
+              by {author}
             </p>
             <h5 className="text-gray-900 text-m font-bold mb-2">Description</h5>
             <p className="text-gray-700 text-sm mb-4 italic">
-              {podcast.summary.label}
+              {description}
             </p>
           </div>
         </div>
-      ))}
     </div>
   );
+  }
+  else{
+    return(<p>hola</p>)
+    
+  }     
+
 };
 
 export default SideDetail;

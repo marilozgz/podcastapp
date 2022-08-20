@@ -1,22 +1,30 @@
-import { render } from "@testing-library/react";
 import React from "react";
 import ReactPlayer from 'react-player/lazy'
-import { useParams, Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 const EpisodeInfo = () => {
   const location = useLocation();
-  const data = location.state;
-  
-  return
-     
-        data.map((episode, index) => (
-          render(
-            <div className="flex flex-col justify-center items-center">
-            {episode.trackName }
-            <ReactPlayer url={episode.previewUrl} controls={true} width="100%" height="100%" />
-            </div>
-          )
-        ))
+  const data = location.state.e;
+ 
+  return(
+     <div>
+       
+
+              <div className="flex flex-col justify-center items-center">
+              <h1>{data.trackName}</h1>
+              <p>{data.description}</p>
+              
+              </div>
+              <ReactPlayer url={data.previewUrl}  width="400px"
+              height="50px"
+              playing={false}
+              controls={true}/>
+       
+      
+      </div>
+  );
+          
+
        
 
     

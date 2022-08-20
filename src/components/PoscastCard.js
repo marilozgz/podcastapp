@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-const PodcastCard = ({  id,title, author , image}) => {
+const PodcastCard = ({  id,title, author , image, description}) => {
   return (
-  <Link to={`/podcast/${id}`}   key={id}>
+  <Link to={`/podcast/${id}`} state={{id,title,author,image, description}}  key={id}>
     <div key={id}
       id="posdcast-card"
       className="container mt-10 mb-10 mx-auto px-4 mt-5 pb-5 flex flex-row justify-between"

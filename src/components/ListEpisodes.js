@@ -1,11 +1,10 @@
-import axios from "axios";
 import React ,{ useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import {convertMsToTime,formatDate,capitalize} from "../utils/helpers";
 
 
 
-const TableEpisodes = () => {
+const TableEpisodes = ({  title, author , image, description}) => {
    const [episode, setEpisode] = useState([]);
     const { id } = useParams();
     const [numEpisodes, setNumEpisodes] = useState(0);
@@ -43,7 +42,7 @@ const TableEpisodes = () => {
             <tbody>
                 {episode.slice(1, -1).map((e, index) => (
               <tr key={index} className="text-xs">
-                <td className="text-xs w-1/2 px-4 py-2 text-sky-800	" ><Link state={e}to={`/podcast/${id}/episode/${e.trackId}`} >{capitalize(e.trackName)}</Link></td>
+                <td className="text-xs w-1/2 px-4 py-2 text-sky-800	" ><Link state={{author,title,image, description, e}} to={`/podcast/${id}/episode/${e.trackId}`} >{capitalize(e.trackName)}</Link></td>
                 <td className="text-xs w-1/4 px-4 py-2">{formatDate(e.releaseDate)}</td>
                 <td className="text-xs w-1/4 px-4 py-2">{convertMsToTime(e.trackTimeMillis)}</td>
               </tr>

@@ -3,9 +3,8 @@ import PodcastCard from "./PoscastCard";
 import { useSelector} from "react-redux";
 import { showPodcast } from "../features/podcastSlice";
 
-const PodcastList = ({}) => {
+const PodcastList = () => {
   const listpodcast = useSelector(showPodcast);
-
 
   const arrayChunk = (listpodcast, n) => {
     const array = listpodcast.slice();
@@ -37,8 +36,8 @@ const PodcastList = ({}) => {
         </div>
         {arrayChunk([...Array(9).keys()], 3).map((row, i) => (
           <div className="grid grid-cols-4 gap-4" key={i}>
-        {listpodcast.map((podcast,index) => (
-          <PodcastCard title= {podcast.title.label} author={podcast['im:artist'].label} image ={podcast['im:image'][2].label} id={podcast.id.attributes["im:id"]} key={podcast.id.attributes["im:id"]}/>
+        {listpodcast.map((podcast) => (
+          <PodcastCard title= {podcast.title.label} author={podcast['im:artist'].label} image ={podcast['im:image'][2].label} description={podcast.summary.label} id={podcast.id.attributes["im:id"]} key={podcast.id.attributes["im:id"]}/>
         
         ))}
         </div>
