@@ -1,27 +1,26 @@
 import React ,{ useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
-import {convertMsToTime,formatDate,capitalize} from "../utils/helpers";
-
-
+import {convertMsToTime,formatDate} from "../../utils/helpers";
+import { useDispatch } from "react-redux";
+import{getAllEpisodes,getEpisodesAsync} from "../../features/episodeSlice";
+import { useSelector } from "react-redux";
 
 const TableEpisodes = ({  title, author , image, description}) => {
-   const [episode, setEpisode] = useState([]);
     const { id } = useParams();
     const [numEpisodes, setNumEpisodes] = useState(0);
-    const api = 'https://corsproxy.io/?' + encodeURIComponent('https://itunes.apple.com/lookup?id='+id+'&media=podcast&entity=podcastEpisode&limit=100');
 
+    const dispatch = useDispatch();
+    const listEpisodes = useSelector(getAllEpisodes);
+ 
     useEffect(() => {
-         const getEpisodes = async () => {
-            
-            const res = await fetch(api);
-            const data = await res.json();
-            setNumEpisodes(data.resultCount);
-            setEpisode(data.results);
-            
-        }
-        getEpisodes();
-    } , [api]);
-
+        dispatch(getEpisodesAsync(id));
+    } , [id]);
+    useEffect(() => {
+      if (listEpisodes.length) {
+          setNumEpisodes(listEpisodes.length);
+      }
+    }, [listEpisodes]);
+  
     
     return(
         
@@ -40,9 +39,9 @@ const TableEpisodes = ({  title, author , image, description}) => {
               </tr>
             </thead>
             <tbody>
-                {episode.slice(1, -1).map((e, index) => (
+                {listEpisodes.slice(1, -1).map((e, index) => (
               <tr key={index} className="text-xs">
-                <td className="text-xs w-1/2 px-4 py-2 text-sky-800	" ><Link state={{author,title,image, description, e}} to={`/podcast/${id}/episode/${e.trackId}`} >{capitalize(e.trackName)}</Link></td>
+                <td className="text-xs w-1/2 px-4 py-2 text-sky-800	" ><Link state={{author,title,image, description, e}} to={`/podcast/${id}/episode/${e.trackId}`} >{e.trackName}</Link></td>
                 <td className="text-xs w-1/4 px-4 py-2">{formatDate(e.releaseDate)}</td>
                 <td className="text-xs w-1/4 px-4 py-2">{convertMsToTime(e.trackTimeMillis)}</td>
               </tr>

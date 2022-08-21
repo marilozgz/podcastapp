@@ -8,7 +8,6 @@ export const getPodcastAsync = createAsyncThunk(
   "podcasts/getPodcastAsync",
   async () => {
     const response = await axios.get(API_URL);
-    console.log(response.data.feed.entry) 
     return response.data.feed.entry;
   }
 );

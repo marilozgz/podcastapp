@@ -1,10 +1,9 @@
-import React , {  useEffect } from "react";
+import React  from "react";
 import { Routes, Route } from "react-router-dom";
-import { useDispatch } from "react-redux";
 /* Imports components */
 import PodcastDetail from "./Podcast/PodcastDetail";
 import Home from "./Home/Home";
-import Header from "./Header";
+import Header from "./Common/Header";
 import EpisodeDetail from "./Episodes/EpisodeDetail";
 function App() {
 

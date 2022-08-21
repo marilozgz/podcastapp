@@ -1,9 +1,7 @@
 import React from "react";
 
-import { useParams } from "react-router-dom";
 
 const SideDetail = ({  description,title, author , image}) => {
-  const { id } = useParams();
   if(author){
   
   return (

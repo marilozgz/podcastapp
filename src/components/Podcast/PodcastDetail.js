@@ -1,6 +1,6 @@
 import React from "react";
-import TableEpisodes from "../ListEpisodes";
-import SideDetail from "../SideDetail";
+import TableEpisodes from "./ListEpisodes";
+import SideDetail from "../Common/SideDetail";
 import { useLocation } from 'react-router-dom';
 
 const PodcastDetail = () => {
