@@ -11,7 +11,6 @@ const TableEpisodes = ({  title, author , image, description}) => {
 
     const dispatch = useDispatch();
     const listEpisodes = useSelector(getAllEpisodes);
- 
     useEffect(() => {
         dispatch(getEpisodesAsync(id));
     } , [id]);

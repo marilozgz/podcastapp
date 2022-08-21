@@ -25,6 +25,7 @@ export const episodeSlide = createSlice({
     [getEpisodesAsync.fulfilled]: (state, { payload }) => {
       state.loading = false;
       state.episodes = payload;
+      localStorage.setItem('episodes', JSON.stringify(payload));
     },
     [getEpisodesAsync.rejected]: (state) => {
       state.loading=false
@@ -34,5 +35,6 @@ export const episodeSlide = createSlice({
 
 
 
-export const getAllEpisodes = (state) => state.episodes.episodes;
+export const getAllEpisodes = (state) => {
+  return state.persistedReducer.episodes.episodes};
 export default episodeSlide.reducer;

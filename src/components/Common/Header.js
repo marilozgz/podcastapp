@@ -4,8 +4,8 @@ import ReactLoading from 'react-loading';
 import { useSelector } from "react-redux";
 
 const Header = () => {
-  const loading = useSelector((state) => state.podcasts.loading);
-  const loadingepisodes = useSelector((state) => state.episodes.loading);
+  const loading = useSelector((state) =>  state.persistedReducer.podcasts.loading);
+  const loadingepisodes = useSelector((state) =>  state.persistedReducer.episodes.loading);
 
 
     return(

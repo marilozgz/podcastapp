@@ -28,6 +28,7 @@ export const podcastSlice = createSlice({
     [getPodcastAsync.fulfilled]: (state, { payload }) => {
       state.loading = false;
       state.podcasts = payload;
+      localStorage.setItem('podcasts', JSON.stringify(payload));
     },
     [getPodcastAsync.rejected]: (state) => {
       state.loading=false
@@ -37,7 +38,10 @@ export const podcastSlice = createSlice({
 
 
 
-export const getAllPodcast = (state) => state.podcasts.podcasts;
+//export const getAllPodcast = (state) => state.podcasts.podcasts;
+
+export const getAllPodcast = (state) => {
+  return state.persistedReducer.podcasts.podcasts};
 export const getPodcastById = (id) =>
   createSelector(
     (state) => state.podcasts.data,
