@@ -3,7 +3,7 @@ import podcastSlice from "./features/podcastSlice";
 
 const store= configureStore({
     reducer: {
-        podcast:podcastSlice,
+        podcasts:podcastSlice,
     }
 });
 
