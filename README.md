@@ -1,10 +1,18 @@
-# Getting Started with Create React App
+# Podcast iTunes App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Simple one-page application based in ReactJs with redux-toolkit to explore Podcast from the iTunes Api.
+Using Tailwind CSS to style the site.
+Simple Cypress test to ensure the correct loading of complete app.
+To avoid CORS when fectching data I've used [https://corsproxy.io/?](https://corsproxy.io/?) whit others iTunes doesn't return the full data.
+To store data for a period of time and avoid request without changes the webapp uses redux-persist
 
-## Available Scripts
+## How install and Run
 
 In the project directory, you can run:
+
+### `npm install`
+
+After download the code be sure to run this command, to install all the dependencies.
 
 ### `npm start`
 
@@ -14,10 +22,10 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-### `npm test`
+### `npm cypress:open`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Launches the test runner of cypress for the test file.
+
 
 ### `npm run build`
 
@@ -27,44 +35,11 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## How to use it
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+When you load the site for first time, your are going to get a grid with all the podcast avaible, a total of 100, using the filter input you can search by author or name, getting aa filterd list in time.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Once you choose your desire podcast, simple, click it and you'll get extra info about it, and a list of all the episodes avaiable including the release date and the duration.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+So if you want listen one, just choose, click and you'll see the episode info and a player... so you only need to click play.
